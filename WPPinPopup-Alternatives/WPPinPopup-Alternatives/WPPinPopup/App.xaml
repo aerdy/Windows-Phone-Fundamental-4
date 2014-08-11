@@ -1,0 +1,36 @@
+﻿<Application 
+    x:Class="WPPinPopup.App"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"       
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit">
+
+    <!--Application Resources-->
+    <Application.Resources>
+        <ControlTemplate TargetType="toolkit:ContextMenu" x:Key="customMenu">
+            <StackPanel Width="300">
+                <Path 
+							Name="UpperLeftPath"
+							Data="M0,1 L1,1 L1,0 "
+							Fill="Green"
+							Stretch="Fill"
+							Margin="12,0"
+							Height="12"
+							Width="18"
+							HorizontalAlignment="Center" />
+                <Border BorderBrush="Green" BorderThickness="2" Background="#ff20AD2A">
+                    <ItemsPresenter />
+                </Border>
+            </StackPanel>
+        </ControlTemplate>
+    </Application.Resources>
+
+    <Application.ApplicationLifetimeObjects>
+        <!--Required object that handles lifetime events for the application-->
+        <shell:PhoneApplicationService 
+            Launching="Application_Launching" Closing="Application_Closing" 
+            Activated="Application_Activated" Deactivated="Application_Deactivated"/>
+    </Application.ApplicationLifetimeObjects>
+
+</Application>
